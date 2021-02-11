@@ -15,7 +15,6 @@ class ShopPage extends Component {
         const {collections} = this.state
         return (
             <div>
-                <h1>SHOP PAGE</h1>
                 <div>
                     {
                         collections.map((({id, ...otherCollection}) => (
