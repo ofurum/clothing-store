@@ -42,8 +42,8 @@ class SignUp extends Component {
             });
 
         }catch(error){ 
-            let errorCode = error.code;
-            let errorMessage = error.message;
+            const errorCode = error.code;
+            const  errorMessage = error.message;
             if (errorCode == "auth/weak-password") {
               alert("The password is too weak.");
             } else {

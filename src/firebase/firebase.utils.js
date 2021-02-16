@@ -17,13 +17,13 @@ firebase.initializeApp(config);
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
 
- const userRef = fireStore.doc(`user/${userAuth.uid}`)
- const snapShot = await userRef.get();
+ const userRef = fireStore.doc(`user/${userAuth.uid}`)//this is to access the url of the user id in document section
+ const snapShot = await userRef.get();// this is to get thr result if found
 
  if(!snapShot.exists){
    const {displayName, email} = userAuth
    const createdAt = new Date();
-    if(displayName === null) console.log('not accessing')
+  
    try {
      await userRef.set({
        displayName,
