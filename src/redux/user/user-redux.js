@@ -1,7 +1,7 @@
 import { UserActionTypes} from './user.types';
 
 const INITIALIZE_STATE = {
-    currentUser: null
+    currentUser: null,
 }
 
 

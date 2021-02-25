@@ -10,6 +10,10 @@ import Header from './component/Header/Header.component'
 import CheckOut from './pages/check-out/check-out.component'
 import SignInSignUpPage from './pages/sign-in/sign-in.component';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
+// import CategoryPage from "./pages/category/category.component";
+import CollectionPage from "./pages/category/category.component";
+import CollectionsOverview from "./component/collection-overview/collection-overview.component";
+
 import { connect } from 'react-redux';
 import setCurrentUser from './redux/user.action'
 import { seletedUser } from "./redux/user/user.selector";
@@ -61,6 +65,7 @@ class App extends Component  {
               currentUser ? <Redirect to="/" /> : <SignInSignUpPage />
             }
           />
+          <Route path={"/shop/:collectionId"} component={CollectionPage} />
           <Route exact path="/check-out" component={CheckOut} />
         </Switch>
       </div>

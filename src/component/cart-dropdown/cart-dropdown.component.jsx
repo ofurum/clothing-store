@@ -10,7 +10,6 @@ import { toggleCart } from "../../redux/cart/cart.action";
 
 
  const CartDropdown = ({cartItems, history, setToggleCart}) => {
-  console.log(cartItems)
      return (
        <div className="cart-dropdown">
          <div className="cart-items">

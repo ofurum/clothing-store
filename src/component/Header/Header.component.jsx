@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef,useState,  useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {createStructuredSelector} from 'reselect';
 import  {ReactComponent as Logo} from '../../assets/headerIcon/crown.svg';
@@ -12,9 +12,26 @@ import './Header.styles.scss';
 
 
 const Header = ({ currentUser, hidden}) => {
+  const headerRef = useRef()
+  const [isSticky, setSticky] = useState(false);
+ 
+
+  const handleScroll = () => {
+    if (headerRef.current) {
+      setSticky(headerRef.current.getBoundingClientRect().top <= 0);
+    }
+  };
+
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    
+  }, [])
+
   console.log('header',  currentUser)
+  
   return (
-    <div className="header">
+    <div ref={headerRef} className={`header ${isSticky ? "sticky" : ""}`}>
       <Link className="logo-container" to={`/`}>
         <Logo />
       </Link>
@@ -45,6 +62,10 @@ const Header = ({ currentUser, hidden}) => {
 const mapStateToProps = createStructuredSelector({
     currentUser: seletedUser,
     hidden: cartHidden
-})
+});
+
+
+
+
 
 export default connect(mapStateToProps)(Header);

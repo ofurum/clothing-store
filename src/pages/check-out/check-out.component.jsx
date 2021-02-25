@@ -14,7 +14,7 @@ import CheckoutItem from '../../component/checkoutItem/checkoutItem.component'
 
 const CheckOut = ({cartItems, total, toggleCart}) => (
   <div className="checkout-page">
-    <div className="checkout-header">
+     <div className="checkout-header">
       <div className="header-block">
         <span>Product</span>
       </div>
@@ -30,7 +30,7 @@ const CheckOut = ({cartItems, total, toggleCart}) => (
       <div className="header-block">
         <span>remove</span>
       </div>
-    </div>
+    </div> 
     {
         cartItems.map(cartItem => (
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
